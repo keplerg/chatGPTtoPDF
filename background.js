@@ -9,10 +9,11 @@ async function addPrintCSS() {
     const customStyles = `
     @media print {
         .text-message *:not(.katex *) {
-            font-size: 1.5rem !important;
+            font-size: .75rem !important;
+            color: #000 !important;
         }
         .text-message .katex-display {
-            transform: scale(1.5) !important;
+            font-size: inherit;
         }
         .user-message-bubble-color {
             print-color-adjust: exact !important;
@@ -60,5 +61,6 @@ async function addPrintCSS() {
     styleSheet.type = "text/css";
     styleSheet.innerText = customStyles;
     document.head.appendChild(styleSheet);
+    window.print();
 }
 
